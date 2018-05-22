@@ -24,6 +24,7 @@ func (p *proxyPipe) New(items []ProxyItem) *proxyPipe {
 		proxy.getter <- proxyItem
 	}
 
+	return proxy
 }
 
 func (p *proxyPipe) get() (proxyItem ProxyItem, err error) {
