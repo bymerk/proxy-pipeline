@@ -34,10 +34,10 @@ func (pipe *Pipeline) SetProxyList(proxyList []ProxyItem) {
 	pipe.proxyList = proxyList
 }
 
-func (pipe *Pipeline) Run() {
-	pipe.Server.ListenAndServe()
+func (pipe *Pipeline) Run() error {
+	return pipe.Server.ListenAndServe()
 }
 
-func (pipe *Pipeline) RunTLS(cert, key string) {
-	pipe.Server.ListenAndServeTLS(cert, key)
+func (pipe *Pipeline) RunTLS(cert, key string) error {
+	return pipe.Server.ListenAndServeTLS(cert, key)
 }
