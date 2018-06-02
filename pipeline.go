@@ -4,7 +4,6 @@ import (
 	"sync"
 	"net/http"
 	"time"
-	"gitlab.com/merk/pipe"
 )
 
 type Pipeline struct {
