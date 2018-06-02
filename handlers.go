@@ -8,7 +8,7 @@ import (
 )
 
 func (pipe *Pipeline) getProxy(host string) (proxyItem ProxyItem, err error) {
-	
+
 
 	if proxyInterface, ok := pipe.proxies.Load(host); ok {
 		if p, ok := proxyInterface.(*proxyPipe); ok {
@@ -28,8 +28,6 @@ func (pipe *Pipeline) getProxy(host string) (proxyItem ProxyItem, err error) {
 func (pipe *Pipeline) handleTunneling(w http.ResponseWriter, r *http.Request) {
 
 	proxyItem, err := pipe.getProxy(r.Host)
-
-	fmt.Println(proxyItem)
 
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusServiceUnavailable)
