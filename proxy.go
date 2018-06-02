@@ -1,7 +1,7 @@
 package pipeline
 
 import (
-	"github.com/pkg/errors"
+	"errors"
 )
 
 type proxyPipe struct {
@@ -17,7 +17,7 @@ type ProxyItem struct {
 func (p *proxyPipe) New(items []ProxyItem) *proxyPipe {
 
 	proxy := &proxyPipe{
-		getter: make(chan ProxyItem),
+		getter: make(chan ProxyItem, len(items)),
 	}
 
 	for _, proxyItem := range items {
