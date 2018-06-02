@@ -4,7 +4,6 @@ import (
 	"net/http"
 	"io"
 	"golang.org/x/net/proxy"
-	"fmt"
 )
 
 func (pipe *Pipeline) getProxy(host string) (proxyItem ProxyItem, err error) {
